@@ -1,0 +1,99 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2020": true
+  },
+  "globals": {
+    "testcafe": "readonly"
+  },
+  "plugins": ["@typescript-eslint", "import", "testcafe"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:testcafe/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    }
+  },
+  "rules": {
+    "prefer-const": "error",
+    "require-atomic-updates": "warn",
+    // The type of the parameters and return value are not required
+    "valid-jsdoc": [
+      "error",
+      {"requireReturnType": false, "requireParamType": false, "requireReturn": false}
+    ],
+    // See https://github.com/benmosher/eslint-plugin-import/issues/1282
+    "import/named": "off",
+    "@typescript-eslint/no-non-null-assertion": "error",
+    // These ESLint rules are known to cause issues with typescript-eslint
+    // See https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/recommended.json
+    "camelcase": "off",
+    "@typescript-eslint/naming-convention": [
+        "error",
+        {
+            "selector": "enumMember",
+            "format": ["UPPER_CASE", "PascalCase", "camelCase"]
+        },
+        {
+            "selector": "function",
+            "format": ["PascalCase", "camelCase"]
+        },
+        {
+            "selector": "variable",
+            "format": ["PascalCase", "camelCase", "UPPER_CASE"],
+            "leadingUnderscore": "allow"
+        }
+    ],
+    // keep alpha order please
+    "no-array-constructor": "off",
+    "@typescript-eslint/no-array-constructor": ["error"],
+    "no-duplicate-imports": "off",
+    "@typescript-eslint/no-duplicate-imports": ["error"],
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["error"],
+    "no-redeclare": "off",
+    "@typescript-eslint/no-redeclare": ["error"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {"ignoreRestSiblings": true}],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["warn"],
+
+    // Recommended in the typescript-eslint documentation
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+    "no-undef": "off",
+    // TS specific
+    "@typescript-eslint/consistent-type-assertions": "error",
+    "@typescript-eslint/no-namespace": "error",
+    "max-lines": "warn",
+    "no-console": ["error", { "allow": ["log"] }],
+    "no-debugger": ["error"],
+    "no-loop-func": 1,
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-warning-comments": 1,
+    "@typescript-eslint/no-var-requires": 0,
+    "prettier/prettier": [2, {
+      "singleQuote": true,
+      "arrowParens": "avoid",
+      "bracketSpacing": false,
+      "tabWidth": 4,
+      "trailingComma": "es5",
+      "semi": false,
+      "printWidth": 100,
+      "useTabs": false
+  }]
+  }
+}

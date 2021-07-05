@@ -1,0 +1,21 @@
+{
+    "browsers": "chrome --start-fullscreen",
+    "debugMode": false,
+    "debugOnFail": true,
+    "skipJsErrors": false,
+    "skipUncaughtErrors": false,
+    "disablePageCaching": true,
+    "concurrency": 1,
+    "assertionTimeout": 20000,
+    "selectorTimeout": 20000,
+    "pageLoadTimeout": 20000,
+    "speed": 1,
+    "port1": 1337,
+    "port2": 1338,
+    "color": true,
+    "compilerOptions": {
+        "typescript": {
+           "configPath": "tsconfig.json"
+        }
+    }
+}
